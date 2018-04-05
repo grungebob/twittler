@@ -19,10 +19,7 @@
   </head>
   <h2></h2>
   <body bgcolor="#E6E6FA">
-    <shawn>
-    <shark>
-    <mracus>
-    <douglas>
+    
     <script>
       $(document).ready(function(){
 
@@ -48,11 +45,23 @@
           var $tweet = $('<div></div>');
           
           currentUser = tweet.user;
+          var $currentUser = $('<a href=' + currentUser + '.html></a>');
           
+          $currentUser.css({'box-sizing': 'border-box', 'box-align': 'center', 'border': '2px solid #fffff','color': 'blue', 'font-size': 'medium', 'background-color': '#ffffff'});
+          $currentUser.text('@' + currentUser+ ':')
+        
+          
+
+          $currentUser.on('click', function(event) 
+          { 
+               event.preventDefault(); 
+          });
 
           
             $tweet.css({'box-sizing': 'border-box', 'box-align': 'center', 'border': '2px solid #fffff','color': '#1106ac', 'font-size': 'medium', 'background-color': '#ffffff'});
-            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            $tweet.attr("href", "http://www.google.com/");
+
+            $tweet.text(tweet.message);
             
 
             var $timeStamp = $('<div></div>');
@@ -61,6 +70,7 @@
 
             $timeStamp.prependTo($body);
             $tweet.prependTo($body);
+            $currentUser.prependTo($body);
             
           
             newIndex++
@@ -69,11 +79,12 @@
         }
 
         });
-        
+       
         var $body = $('body');
         $body.css({'display': 'block', 'text-align': 'center', 'font-family': 'Helvetica', 'box-sizing': 'border-box', 'box-align': 'center', 'position': 'absolute', 'font-size': 'large', 'color': '#250382', 'height': '400px', 'margin-top': '5px', 'margin-bottom': '20px', 'margin-left': 'auto', 'margin-right': 'auto'});
         $body.appendTo($h2);
 
+        /*
         $body.on('click', function(){
           var userHistory = streams.users[currentUser];
           for (var i = 0; i < userHistory.length; i++){
@@ -82,16 +93,14 @@
 
             $userHistory.prependTo($body);
 
-            }
+           }
 
         });
-                
+         */
+
       });
 
     </script>
-    </shawn>
-    </shark>
-    </mracus>
-    </douglas>
+    
   </body>
 </html>
