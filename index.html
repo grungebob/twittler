@@ -19,6 +19,10 @@
   </head>
   <h2></h2>
   <body bgcolor="#E6E6FA">
+    <shawn>
+    <shark>
+    <mracus>
+    <douglas>
     <script>
       $(document).ready(function(){
 
@@ -44,22 +48,26 @@
           var $tweet = $('<div></div>');
           
           currentUser = tweet.user;
-
-          $tweet.css({'box-sizing': 'border-box', 'box-align': 'center', 'border': '2px solid #fffff','color': '#1106ac', 'font-size': 'medium', 'background-color': '#ffffff'});
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
           
 
-          var $timeStamp = $('<div></div>');
-          $timeStamp.text('Written: ' + tweet.created_at);
-          $timeStamp.css({'display': 'block', 'background-color': '#8c84fb','border-color': '1px solid #250382', 'margin-bottom': '10px', 'font-size': 'small'});
-
-          $timeStamp.prependTo($body);
-          $tweet.prependTo($body);
           
-        
-          newIndex++
-          scheduleNextTweet();
+            $tweet.css({'box-sizing': 'border-box', 'box-align': 'center', 'border': '2px solid #fffff','color': '#1106ac', 'font-size': 'medium', 'background-color': '#ffffff'});
+            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            
+
+            var $timeStamp = $('<div></div>');
+            $timeStamp.text('Written: ' + tweet.created_at);
+            $timeStamp.css({'display': 'block', 'background-color': '#8c84fb','border-color': '1px solid #250382', 'margin-bottom': '10px', 'font-size': 'small'});
+
+            $timeStamp.prependTo($body);
+            $tweet.prependTo($body);
+            
+          
+            newIndex++
+            scheduleNextTweet();
+          
         }
+
         });
         
         var $body = $('body');
@@ -68,25 +76,22 @@
 
         $body.on('click', function(){
           var userHistory = streams.users[currentUser];
-          var $userHistory = $('<div style = "margin-right: 25%"></div>');
           for (var i = 0; i < userHistory.length; i++){
-            $userHistory.text('@' + userHistory[i]);
-            //$userHistory.text('@' + userHistory[i].user + ': ' userHistory[i].message + ', Written at: ' + userHistory[i].created_at);
+            var $userHistory = $('<div></div>');
+            $userHistory.text('History: @ ' + streams.users[currentUser][i].user + ': '+ streams.users[currentUser][i].message + ', Written: ' + streams.users[currentUser][i].created_at);
 
-        }
+            $userHistory.prependTo($body);
+
+            }
 
         });
-        
-
-
-       
-
-
-
-        
-
+                
       });
 
     </script>
+    </shawn>
+    </shark>
+    </mracus>
+    </douglas>
   </body>
 </html>
