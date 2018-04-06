@@ -84,7 +84,9 @@
         $body.css({'display': 'block', 'text-align': 'center', 'font-family': 'Helvetica', 'box-sizing': 'border-box', 'box-align': 'center', 'position': 'absolute', 'font-size': 'large', 'color': '#250382', 'height': '400px', 'margin-top': '5px', 'margin-bottom': '20px', 'margin-left': 'auto', 'margin-right': 'auto'});
         $body.appendTo($h2);
 
-        /*
+        // This still needs to become user-specific. Needs to prevent the default action of the click from H2. 
+        // Hyperlinks in the body work, but the individual html pages are not referencing the correct portions.
+
         $body.on('click', function(){
           var userHistory = streams.users[currentUser];
           for (var i = 0; i < userHistory.length; i++){
@@ -96,7 +98,7 @@
            }
 
         });
-         */
+         
 
       });
 
