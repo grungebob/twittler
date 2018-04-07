@@ -32,7 +32,7 @@
 
         var $h2 = $('h2');
         $h2.html('<div> See new Tweets</div>');
-        $h2.css({'box-sizing': 'border-box', 'box-align': 'center', 'margin': '0 auto', 'width': '500px', 'position': 'absolute', 'font-size': 'large', 'color': '#250382', 'background-color': '#8c84fb'});
+        $h2.css({'box-sizing': 'border-box', 'margin': '0 auto', 'width': '500px', 'position': 'absolute', 'font-size': 'large', 'color': '#250382', 'background-color': '#8c84fb'});
         $h2.appendTo($head);
 
          //var index = streams.home.length -1;
@@ -47,7 +47,7 @@
           currentUser = tweet.user;
           var $currentUser = $('<a href=' + currentUser + '.html></a>');
           
-          $currentUser.css({'box-sizing': 'border-box', 'box-align': 'center', 'border': '2px solid #fffff','color': 'blue', 'font-size': 'medium', 'background-color': '#ffffff'});
+          $currentUser.css({'box-sizing': 'border-box','border': '2px solid #fffff','width': '500px','color': 'blue', 'font-size': 'medium'});
           $currentUser.text('@' + currentUser+ ':')
         
           
@@ -81,13 +81,14 @@
         });
        
         var $body = $('body');
-        $body.css({'display': 'block', 'text-align': 'center', 'font-family': 'Helvetica', 'box-sizing': 'border-box', 'box-align': 'center', 'position': 'absolute', 'font-size': 'large', 'color': '#250382', 'height': '400px', 'margin-top': '5px', 'margin-bottom': '20px', 'margin-left': 'auto', 'margin-right': 'auto'});
+        $body.css({'display': 'block', 'text-align': 'center', 'font-family': 'Helvetica', 'box-sizing': 'border-box', 'box-align': 'center', 'position': 'absolute', 'font-size': 'large', 'color': '#250382', 'height': '500px', 'width': '500px', 'margin-top': '5px', 'margin-bottom': '20px', 'margin-left': 'auto', 'margin-right': 'auto'});
         $body.appendTo($h2);
 
         // This still needs to become user-specific. Needs to prevent the default action of the click from H2. 
         // Hyperlinks in the body work, but the individual html pages are not referencing the correct portions.
 
-        $body.on('click', function(){
+        $body.on('click', function(event){
+          event.preventDefault(); 
           var userHistory = streams.users[currentUser];
           for (var i = 0; i < userHistory.length; i++){
             var $userHistory = $('<div></div>');
