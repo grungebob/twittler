@@ -4,6 +4,8 @@
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
 
+
+
     <!-- This header isn't working here, I"m not sure why 
      <script>
       $(document).ready(function(){
@@ -17,18 +19,89 @@
     -->
   
   </head>
+  <div id = shawndrost>@shawndrost</div>
+  <div id = sharksforcheap> @sharksforcheap</div>
+  <div id = mracus> @mracus</div>
+  <div id = douglascalhoun> @douglascalhoun</div>
   <h2></h2>
   <body bgcolor="#E6E6FA">
+  
     
     <script>
       $(document).ready(function(){
 
 
         var $head = $('head');
-        $head.html('img src = "twittler_logo.jpg"');
+        $head.html('<img></img>');
+        var $img = $('img'); 
+        $('img').attr('src', 'twittler_logo.jpg"');
+        $img.appendTo($head);
         $head.css({'background-color': '#1106ac', 'display': 'block', 'text-align': 'center', 'font-size': 'xx-large', 'font-family': 'Helvetica', 'color': '#ffffff', 'width': '500px', 'box-sizing': 'border-box', 'box-align': 'center', 'position': 'absolute', 'left': '25%'});
-        $head.prepend('<img id="Twittler" src="twittler_logo.jpg" />');
         $head.text('Welcome to Twittler!');
+
+        var $shawn = $('shawndrost');
+        $shawn.on('click', function(event){
+          event.preventDefault(); 
+          var userHistory = streams.users.shawndrost;
+          for (var i = 0; i < userHistory.length; i++){
+            var $userHistory = $('<div></div>');
+            $userHistory.text('History: @ ' + streams.users.shawndrost[i].user + ': '+ streams.users.shawndrost[i].message + ', Written: ' + streams.users.shawndrost[i].created_at);
+
+            $userHistory.prepend($h2);
+
+
+
+           }
+
+        });
+
+        var $sharks = $('sharksforcheap');
+        $sharks.on('click', function(event){
+          event.preventDefault(); 
+          var userHistory = streams.users.sharksforcheap;
+          for (var i = 0; i < userHistory.length; i++){
+            var $userHistory = $('<div></div>');
+            $userHistory.text('History: @ ' + streams.users.sharksforcheap[i].user + ': '+ streams.users.sharksforcheap[i].message + ', Written: ' + streams.users.sharksforcheap[i].created_at);
+
+            $userHistory.prepend($h2);
+
+
+
+           }
+
+        });
+
+        var $mracus = $('mracus');
+        $mracus.on('click', function(event){
+          event.preventDefault(); 
+          var userHistory = streams.users.mracus;
+          for (var i = 0; i < userHistory.length; i++){
+            var $userHistory = $('<div></div>');
+            $userHistory.text('History: @ ' + streams.users.mracus[i].user + ': '+ streams.users.mracus[i].message + ', Written: ' + streams.users.mracus[i].created_at);
+
+            $userHistory.prepend($h2);
+
+
+
+           }
+
+        });
+
+        var $douglascalhoun = $('douglascalhoun');
+        $douglascalhoun.on('click', function(event){
+          event.preventDefault(); 
+          var userHistory = streams.users.douglascalhoun;
+          for (var i = 0; i < userHistory.length; i++){
+            var $userHistory = $('<div></div>');
+            $userHistory.text('History: @ ' + streams.users.douglascalhoun[i].user + ': '+ streams.users.douglascalhoun[i].message + ', Written: ' + streams.users.douglascalhoun[i].created_at);
+
+            $userHistory.prepend($h2);
+
+
+
+           }
+
+        });
 
         var $h2 = $('h2');
         $h2.html('<div> See new Tweets</div>');
@@ -96,9 +169,14 @@
 
             $userHistory.prependTo($body);
 
+            var $shawndrost = $('<div>shawndrost</div>');
+
+
            }
 
         });
+
+
          
 
       });
